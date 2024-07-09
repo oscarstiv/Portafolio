@@ -1,0 +1,1014 @@
+:root{
+    --Color-Azul:#0284f9;
+    --Color-Negro:#020202;
+    --Color-Blanco: #f5f5f5;
+    --Color-Gris:#e8e8e8;
+    --Font-Textos: "Roboto Condensed", sans-serif;
+    --Font-Titles: "degular-variable",sans-serif; font-variation-settings: 'ital' 0, 'opsz' 70, 'wght' 800;
+}
+
+/* Reset */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: var(--Font-Textos);
+    scroll-behavior: smooth;
+}
+
+a{
+    cursor: pointer;
+}
+
+.fondo{
+    background-color: var(--Color-Azul);
+}
+
+/**************************/
+/********** MENU **********/
+/**************************/
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0px;
+    z-index: 3;
+}
+.circle-button {
+    position: relative;
+    z-index: 3;
+}
+#circ {
+    position: relative;
+    font-size: 0.8rem;
+    font-family: var(--Font-Titles);
+    font-weight: bold;
+    animation: spin 14s linear infinite;
+    color: var(--Color-Negro);
+    z-index: 1;
+    margin: 30px auto;
+    text-transform: uppercase;
+}
+.btn-circle {
+    position: absolute;
+    top: 29px;
+    right: -49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.5s all;
+    margin: 0 auto;
+    color: var(--Color-Blanco);
+    font-size: 1.5rem;
+    box-shadow: 0px 0px 10px #2323231c;
+    cursor: pointer;
+}
+.btn-circle img {
+    width: 80%;
+}
+.btn-circle:hover {
+    background: var(--Color-Gris);
+}
+.menu_opciones {
+    display: none;
+    opacity: 0;
+    background-color: white;
+    border: 1px solid var(--Color-Negro);
+    padding: 10px 20px;
+    border-radius: 80px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    transform: scale(0);
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 4;
+}
+.menu_opciones.show {
+    display: flex;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+.menu_opciones ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.menu_opciones ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+.menu_opciones ul li:last-child {
+    margin-right: 0;
+}
+.menu_opciones ul li a {
+    color: var(--Color-Negro);
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    font-family: var(--Font-Titles);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+.menu_opciones ul li a:hover {
+    color: var(--Color-Azul);
+}
+
+/****************************/
+/********** INICIO **********/
+/****************************/
+
+.inicio {
+    background-color: var(--Color-Azul);
+    height: auto;
+    position: relative; /* Añadimos posición relativa para alinear elementos hijos */
+    overflow: hidden; /* Ocultamos el texto que se desborda */
+}
+.inicio h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 35rem; /* Tamaño de fuente ajustado */
+    font-family: var(--Font-Titles);
+    text-transform: uppercase;
+    color: var(--Color-Blanco); /* Color del texto principal */
+    position: absolute; /* Posición absoluta para mover el texto */
+    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+    animation: moveText 12s linear infinite; /* Animación para mover el texto */
+    animation-delay: -2s; /* Retraso inicial para el inicio suave */
+    text-shadow: 
+        5px 5px 0 black, 
+        -5px -5px 0 black, 
+        5px -5px 0 black, 
+        -5px 5px 0 black; /* Sombras para simular el borde */
+}
+@keyframes moveText {
+    from {
+        transform: translateX(100%); /* Empieza fuera del contenedor a la derecha */
+    }
+    to {
+        transform: translateX(-100%); /* Termina fuera del contenedor a la izquierda */
+    }
+}
+.inicio-imagen {
+    position: relative; /* Añadimos posición relativa al contenedor de la imagen */
+    z-index: 1; /* Asegura que la imagen esté delante del texto */
+    text-align: center;
+}
+.inicio-imagen img{
+    width: 70%; /* Asegura que la imagen esté delante del texto */
+}
+
+/* CSS para el cursor personalizado con icono */
+.custom-cursor {
+    cursor: none;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+}
+.custom-cursor .cursor-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.custom-cursor i {
+    font-size: 4rem;
+    color: var(--Color-Negro);
+    margin-bottom: 0px; /* Espacio inferior entre el icono y el texto */
+}
+.custom-cursor .scroll-down {
+    font-size: 1rem;
+    color: var(--Color-Negro);
+}
+
+/* CSS para aplicar el cursor personalizado al hover */
+.inicio:hover {
+    cursor: none; /* Oculta el cursor por defecto */
+}
+.inicio:hover::before {
+    content: ''; /* Contenido vacío para el pseudo-elemento */
+    display: block;
+    width: 2px; /* Ancho de la línea */
+    height: 12px; /* Altura de la línea */
+    background-color: black; /* Color de la línea */
+    position: absolute; /* Posición absoluta dentro del círculo */
+    top: 50%; /* Alinear al centro verticalmente */
+    left: 50%; /* Alinear al centro horizontalmente */
+    transform: translate(-50%, -50%); /* Centrar el elemento */
+}
+
+/*******************************/
+/********** PROYECTOS **********/
+/*******************************/
+
+.proyectos{
+    padding-top: 30px;
+    border-radius: 70px 70px 0px 0px;
+    box-shadow: 0px -2px 5px #fcfcfc46;
+    background-color: var(--Color-Blanco);
+    opacity: 1;
+    background-image:  radial-gradient(#c4c4c4 0.5px, transparent 0.5px), radial-gradient(#c4c4c4 0.5px, #ffffff 0.5px);
+    background-size: 16px 16px;
+    background-position: 0 0,8px 8px;
+}
+.proyectos h2{
+    font-family: var(--Font-Titles);
+    color: var(--Color-Azul); 
+    font-size: 5rem;
+    text-align: left;
+    text-transform: uppercase;
+    margin: 30px 0px;
+}
+.proyectos p{
+    font-size: 1.5rem;
+    text-align: right;
+    font-weight: 400;
+    line-height: 1.8rem;
+    margin-bottom: 50px;
+}
+.proyectos .flecha{
+    display: flex;
+    justify-content: right;
+    align-items: start;
+}
+.proyectos .flecha img{
+    width: 60%;
+}
+.proyectos .categorias .categoria{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid var(--Color-Negro);
+    padding: 10px 30px;
+    border-radius: 100px;
+    margin-bottom: 30px;
+    position: relative;
+    transition: background-color 0.3s ease;
+    &:hover{
+        background-color: var(--Color-Gris);
+    }
+}
+.proyectos .categorias a{
+    text-decoration: none;
+    color: var(--Color-Negro);
+}
+.proyectos .categorias .categoria .text{
+    width: 90%;
+    display: flex;
+    justify-content: start;
+}
+.proyectos .categorias .categoria .text h3{
+    font-family: var(--Font-Titles);
+    padding: 0px;
+    margin: 0px;
+    text-transform: uppercase;
+    font-size: 3rem;
+}
+.proyectos .categorias .categoria .img{
+    width: 0;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition: width 0.5s ease, opacity 0.5s ease;
+}
+.proyectos .categorias .categoria .img .imagen{
+    position: absolute;
+    width: 30%;
+    bottom: 0px;
+    filter: drop-shadow(0px 0px 3px #8989899a);
+}
+.proyectos .categorias .categoria .icon{
+    width: 10%;
+    display: flex;
+    justify-content: end;
+}
+.proyectos .categorias .categoria .icon i{
+    padding: 0px;
+    margin: 0px;
+    font-size: 3rem;
+    color: var(--Color-Azul);
+    text-align: center;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+.categorias .categoria:hover .img {
+    width: 40%;
+    opacity: 1;
+}
+.categorias .categoria:hover .icon i{
+    transform: rotate(-45deg);
+}
+
+/******************************/
+/********** SOBRE MI **********/
+/******************************/
+
+.sobre-mi{
+    background-color: var(--Color-Negro);
+}
+.sobre-mi h2{
+    font-family: var(--Font-Titles);
+    color: var(--Color-Blanco);
+    font-size: 5rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px 0px;
+}
+.sobre-mi p{
+    color: var(--Color-Blanco);
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 200;
+    line-height: 1.8rem;
+    margin-bottom: 50px;
+}
+.sobre-mi .btn{
+    display: flex;
+    justify-content: center;
+}
+.sobre-mi .btn a{
+    font-family: var(--Font-Titles);
+    background-color: var(--Color-Azul);
+    padding: 15px 50px;
+    color: var(--Color-Blanco);
+    font-size: 1.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.8rem;
+    margin-bottom: 50px;
+    border: 2px solid var(--Color-Blanco);
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+.sobre-mi .btn a:hover{
+    text-decoration: none;
+    transform: scale(1.1,1.1);
+}
+.sobre-mi .btn a i{
+    margin-right: 5px;
+    padding: 0px;
+    margin: 0px;
+}
+
+/******************************/
+/********** CONTACTO **********/
+/******************************/
+
+.contacto{
+    padding: 30px 0px 80px 0px;
+}
+
+.contacto h2{
+    font-family: var(--Font-Titles);
+    text-align: center;
+    font-size: 5rem;
+    text-transform: uppercase;
+    line-height: 5rem;
+    margin: 50px 0px 30px 0px;
+    color: var(--Color-Blanco);
+}
+.contacto .email {
+    margin: 30px;
+    background-color: var(--Color-Blanco);
+    border-radius: 30px;
+    border: 5px solid var(--Color-Negro);
+}
+.contacto .email:hover {
+    transform: rotate(-3deg);
+    cursor: pointer;
+}
+.contacto .email h3{
+    font-family: var(--Font-Titles);
+    text-align: center;
+    font-size: 7rem;
+    color: var(--Color-Negro);
+    margin: 10px 0px;
+    padding: 0px;
+    
+}
+.contacto .email .btnContact{
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 0%;
+}
+.contacto .email .btnContact a{
+    background-color: #15d972;
+    padding: 10px 50px;
+    margin: 0px 0px 30px 0px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    color: var(--Color-Blanco);
+    border: 2px solid var(--Color-Negro);
+}
+.contacto .email .btnContact a:hover{
+    text-decoration: none;
+    transform: scale(1.1,1.1);
+}
+.contacto .telefono {
+    margin: 30px;
+    background-color: var(--Color-Blanco);
+    border-radius: 30px;
+    border: 5px solid var(--Color-Negro);
+}
+.contacto .telefono:hover {
+    transform: rotate(3deg);
+    cursor: pointer;
+}
+.contacto .telefono h3{
+    font-family: var(--Font-Titles);
+    text-align: center;
+    font-size: 7rem;
+    color: var(--Color-Negro);
+    margin: 10px 0px;
+    padding: 0px;
+}
+.contacto .telefono .btnContact{
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 0%;
+}
+.contacto .telefono .btnContact a{
+    background-color: #15d972;
+    padding: 10px 50px;
+    margin: 0px 0px 30px 0px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    color: var(--Color-Blanco);
+    border: 2px solid var(--Color-Negro);
+}
+.contacto .telefono .btnContact a:hover{
+    text-decoration: none;
+    transform: scale(1.1,1.1);
+}
+.contacto .socialMedia{
+    margin: 50px 0px 80px 0px;
+}
+.contacto .socialMedia .redIzq, .contacto .socialMedia .redDer{
+    background-color: var(--Color-Blanco);
+    margin: 0px 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Añadido para el contexto del icono */
+    padding: 10px;
+    color: var(--Color-Negro);
+    text-decoration: none;
+}
+.contacto .socialMedia .redIzq:hover{
+    cursor: pointer;
+    transform: rotate(-3deg);
+    border: 5px solid var(--Color-Azul);
+    box-shadow: 0px 0px 5px var(--Color-Negro);
+    color: var(--Color-Azul);
+    text-decoration: none;
+}
+.contacto .socialMedia .redDer:hover{
+    cursor: pointer;
+    transform: rotate(3deg);
+    border: 5px solid var(--Color-Azul);
+    box-shadow: 0px 0px 5px var(--Color-Negro);
+    color: var(--Color-Azul);
+    text-decoration: none;
+}
+.contacto .socialMedia .redIzq .text, .contacto .socialMedia .redDer .text{
+    overflow: hidden; /* Añadido para ocultar el icono al salir */
+    width: 60%;
+}
+.contacto .socialMedia .redIzq h4, .contacto .socialMedia .redDer h4{
+    font-family: var(--Font-Titles);
+    font-size: 2rem;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    transition: transform 1s ease-in-out;
+}
+.contacto .socialMedia .redIzq .icono, .contacto .socialMedia .redDer .icono{
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* Añadido para ocultar el icono al salir */
+    width: 40%;
+}
+.contacto .socialMedia .redIzq .icono .svg-icon, .contacto .socialMedia .redDer .icono .svg-icon{
+    width: 70%; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    position: relative;
+    transition: transform 1s ease-in-out;
+    fill: var(--Color-Negro); /* Cambia el color aquí */
+}
+.contacto .socialMedia .redIzq:hover .icono .svg-icon, .contacto .socialMedia .redDer:hover .icono .svg-icon{
+    animation: moveUpDown 1s ease-in-out forwards;
+    fill: var(--Color-Azul); /* Cambia el color aquí */
+}
+.contacto .socialMedia .redIzq:hover .text h4, .contacto .socialMedia .redDer:hover .text h4{
+    animation: moveUpDown 1s ease-in-out forwards;
+    color: var(--Color-Azul);
+}
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    49% {
+        transform: translateY(-150%);
+    }
+    50% {
+        transform: translateY(150%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/******************************************************/
+/********************* PROYECTOS *********************/
+/******************************************************/
+
+.proyecto h1{
+    text-align: center;
+    margin: 50px 0px 30px 0px;
+    font-family: var(--Font-Titles);
+    color: var(--Color-Blanco);
+    text-transform: uppercase;
+    font-size: 10rem;
+    text-shadow: 0px 0px 5px #979797ad;
+}
+.proyecto .arrow{
+    font-family: var(--Font-Titles);
+    color: var(--Color-Blanco);
+    font-size: 5rem;
+    text-align: center;
+    animation: moveUpDown 1.5s infinite;
+}
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+.proyecto .seleccion{
+    font-size: 1.2rem;
+    font-weight: 100;
+    color: var(--Color-Blanco);
+    font-family: var(--Font-Textos);
+    margin-bottom: 10px;
+    font-style: italic;
+}
+.proyecto nav{
+    background-color: var(--Color-Blanco);
+    margin-bottom: 50px;
+    border:2px solid var(--Color-Negro);
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.proyecto nav .nav-link{
+    font-family: var(--Font-Titles);
+    font-size: 1.2rem;
+}
+.proyecto nav .active{
+    color: var(--Color-Negro);
+    text-decoration: underline;
+}
+
+.trabajos{
+    border-radius: 70px 70px 0px 0px;
+    box-shadow: 0px -2px 5px #fcfcfc46;
+    background-color: var(--Color-Blanco);
+    opacity: 1;
+    background-image:  radial-gradient(#c4c4c4 0.5px, transparent 0.5px), radial-gradient(#c4c4c4 0.5px, #ffffff 0.5px);
+    background-size: 16px 16px;
+    background-position: 0 0,8px 8px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.trabajos .trabajo{
+    background-color: white;
+    border: 3px solid var(--Color-Negro);
+    border-radius: 60px;
+    margin: 30px 0px;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+}
+.trabajos .trabajo .imagen{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    padding: 0px 20px;
+}
+.trabajos .trabajo .imagen img{
+    width: 70%;
+    height: auto;
+}
+.trabajos .trabajo .texto{
+    width: 50%;
+    text-align: left;
+}
+.trabajos .trabajo .texto hr{
+    border: 4px solid var(--Color-Azul);
+    width: 20%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.trabajos .trabajo .texto h2{
+    font-size: 3rem;
+    font-family: var(--Font-Titles);
+    line-height: 3rem;
+    margin-bottom: 30px;
+    color: var(--Color-Azul);
+}
+.trabajos .trabajo .texto p{
+    padding: 0px 40px 0px 0px;
+}
+.trabajos .trabajo .texto .boton{
+    display: flex;
+    justify-content: right;
+    padding: 0px 30px;
+}
+.trabajos .trabajo .texto .boton a{
+    text-align: center;
+    color: var(--Color-Azul);
+    font-size: 4rem;
+    font-family: var(--Font-Titles);
+    margin: 0px;
+    transition: transform 0.3s ease;
+}
+.trabajos .trabajo .texto .boton a:hover{
+    transform: rotate(-30deg);
+}
+.trabajos .controls .control{
+    font-size: 3rem;
+    text-align: center;
+    color: #c4c4c4;
+    transition: transform 0.3s ease;
+}
+.trabajos .controls .control:hover{
+    color: var(--Color-Negro);
+    transform: rotate(-5deg);
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) { 
+    /*******************************/
+    /********** PROYECTOS **********/
+    /*******************************/
+    .proyectos p{
+        font-size: 1.3rem;
+        text-align: right;
+        font-weight: 400;
+        line-height: 1.6rem;
+        margin-bottom: 50px;
+    }
+    /******************************/
+    /********** SOBRE MI **********/
+    /******************************/
+
+    .sobre-mi .btn a{
+        font-size: 0.9rem;
+    }
+
+    /******************************/
+    /********** CONTACTO **********/
+    /******************************/
+    .contacto h2{
+        font-size: 4rem;
+        line-height: 4.3rem;
+    }
+    .contacto .email h3{
+        font-size: 6rem;
+        
+    }
+    .contacto .telefono h3{
+        font-size: 6rem;
+    }
+    .contacto .socialMedia .redIzq h4, .contacto .socialMedia .redDer h4{
+        font-size: 1.6rem;
+    }
+    /******************************************************/
+    /********************* PROYECTOS *********************/
+    /******************************************************/
+
+    .proyecto h1{
+        font-size: 8rem;
+    }
+    .trabajos .trabajo .imagen{
+        width: 50%;
+    }
+    .trabajos .trabajo .imagen img{
+        width: 95%;
+    }
+    .trabajos .trabajo .texto{
+        width: 50%;
+    }
+    .trabajos .trabajo .texto h2{
+        font-size: 2.5rem;
+        line-height: 2.8rem;
+        margin-bottom: 10px;
+    }
+    .trabajos .trabajo .texto .boton{
+        display: flex;
+        justify-content: right;
+        padding: 0px 30px;
+    }
+    .trabajos .trabajo .texto .boton a{
+        text-align: center;
+        color: var(--Color-Azul);
+        font-size: 4rem;
+        font-family: var(--Font-Titles);
+        margin: 0px;
+        transition: transform 0.3s ease;
+    }
+    .trabajos .trabajo .texto .boton a:hover{
+        transform: rotate(-30deg);
+    }
+}
+
+
+@media (max-width: 768px) {
+    /**************************/
+    /********** MENU **********/
+    /**************************/
+    .menu_opciones {
+        justify-content: center;
+        width: 70%;
+    }
+
+    /****************************/
+    /********** INICIO **********/
+    /****************************/
+    .inicio h1 {
+        font-size: 25rem;
+    }
+    /*******************************/
+    /********** PROYECTOS **********/
+    /*******************************/
+
+    .proyectos{
+        padding: 30px 50px;
+    }
+    .proyectos h2{
+        text-align: center;
+    }
+    .proyectos p{
+        font-size: 1.5rem;
+        text-align: center;
+        font-weight: 400;
+    }
+    .proyectos .flecha{
+        display: none;
+    }
+    /******************************/
+    /********** SOBRE MI **********/
+    /******************************/
+    .sobre-mi .btn{
+        display: flex;
+        justify-content: center;
+    }
+    .sobre-mi .btn a i{
+        margin-right: 20px;
+        padding: 0px;
+        margin: 0px;
+    }
+    /******************************/
+    /********** CONTACTO **********/
+    /******************************/
+    .contacto h2{
+        font-size: 4rem;
+        line-height: 4.3rem;
+    }
+    .contacto .email h3{
+        font-size: 4rem;
+        margin-top: 30px;
+    }
+    .contacto .email .btnContact a{
+        padding: 10px 30px;
+        margin: 10px 0px 50px 0px;
+        font-size: 1.2rem;
+    }
+    .contacto .telefono h3{
+        font-size: 4rem;
+        margin-top: 30px;
+    }
+    .contacto .telefono .btnContact a{
+        padding: 10px 30px;
+        margin: 10px 0px 50px 0px;
+        font-size: 1.2rem;
+    }
+    .contacto .socialMedia{
+        margin: 30px 0px 80px 0px;
+    }
+    .contacto .socialMedia .redIzq h4, .contacto .socialMedia .redDer h4{
+        font-size: 1.3rem;
+    }
+    /******************************************************/
+    /********************* PROYECTOS *********************/
+    /******************************************************/
+
+    .proyecto h1{
+        font-size: 6rem;
+    }
+    .trabajos .trabajo .imagen{
+        width: 50%;
+        display: flex;
+        align-items: center;
+    }
+    .trabajos .trabajo .imagen img{
+        width: 100%;
+        height: 90%;
+    }
+    .trabajos .trabajo .texto{
+        width: 50%;
+    }
+    .trabajos .trabajo .texto h2{
+        font-size: 2.3rem;
+        line-height: 2.6rem;
+        margin-bottom: 10px;
+    }
+    .trabajos .trabajo .texto .boton{
+        display: flex;
+        justify-content: right;
+        padding: 0px 30px;
+    }
+    .trabajos .trabajo .texto .boton a{
+        text-align: center;
+        color: var(--Color-Azul);
+        font-size: 4rem;
+        font-family: var(--Font-Titles);
+        margin: 0px;
+        transition: transform 0.3s ease;
+    }
+    .trabajos .trabajo .texto .boton a:hover{
+        transform: rotate(-30deg);
+    }
+}
+
+
+@media (max-width: 576px) {
+    /**************************/
+    /********** MENU **********/
+    /**************************/
+    .menu_opciones {
+        width: 95%;
+        padding: 10px 5px;
+    }
+    .menu_opciones ul li {
+        margin-right: 5px;
+    }
+    /*******************************/
+    /********** PROYECTOS **********/
+    /*******************************/
+
+    .proyectos{
+        padding: 0px;
+        border-radius: 30px 30px 0px 0px;
+    }
+    .proyectos h2{
+        font-size: 3.5rem;
+        text-align: center;
+        padding: 0px;
+    }
+    .proyectos p{
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+    }
+    .proyectos .flecha{
+        display: none;
+    }
+    .proyectos .categorias{
+        padding: 0px;
+        margin: 0px;
+    }
+    .proyectos .categorias .categoria .text h3{
+        font-size: 1.8rem;
+    }
+    /******************************/
+    /********** SOBRE MI **********/
+    /******************************/
+    .sobre-mi h2{
+        font-size: 3.5rem;
+    }
+    .sobre-mi p{
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+    /******************************/
+    /********** CONTACTO **********/
+    /******************************/
+    .contacto{
+        padding: 30px 0px;
+        margin: 0px;
+    }
+    .contacto h2{
+        text-align: center;
+        font-size: 3rem;
+        line-height: 3.3rem;
+        margin: 50px 0px 30px 0px;
+    }
+    .contacto .email {
+        margin: 10px 0px;
+    }
+    .contacto .email h3{
+        font-size: 5rem;
+        margin: 30px 0px 10px 0px;
+        padding: 0px;
+    }
+    .contacto .telefono {
+        margin: 10px 0px;
+    }
+    .contacto .telefono h3{
+        font-size: 5rem;
+        margin: 30px 0px 10px 0px;
+        padding: 0px;
+    }
+    .contacto .socialMedia{
+        margin: 50px 0px 80px 0px;
+        padding: 0px;
+    }
+    .contacto .socialMedia .redIzq, .contacto .socialMedia .redDer{
+        margin: 20px 0px;
+        padding: 10px;
+    }
+    .contacto .socialMedia .redIzq h4, .contacto .socialMedia .redDer h4{
+        font-size: 2rem;
+    }
+    /******************************************************/
+    /********************* PROYECTOS *********************/
+    /******************************************************/
+    .proyecto h1{
+        font-size: 6rem;
+        line-height: 5rem;
+        margin: 70px 0px 50px 0px;
+    }
+    .trabajos{
+        border-radius: 50px 50px 0px 0px;
+    }
+    .trabajos .trabajo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0px;
+        border-radius: 50px;
+    }
+    .trabajos .trabajo .imagen{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .trabajos .trabajo .imagen img{
+        width: auto;
+    }
+    .trabajos .trabajo .texto{
+        width: 100%;
+        padding: 0px 20px;
+    }
+    .trabajos .trabajo .texto h2{
+        font-size: 2.3rem;
+        line-height: 2.6rem;
+        margin-bottom: 10px;
+    }
+    .trabajos .trabajo .texto .boton{
+        display: flex;
+        justify-content: right;
+        padding: 0px;
+    }
+    .trabajos .trabajo .texto .boton a{
+        text-align: center;
+        color: var(--Color-Azul);
+        font-size: 4rem;
+        font-family: var(--Font-Titles);
+        margin: 0px;
+        transition: transform 0.3s ease;
+    }
+    .trabajos .trabajo .texto .boton a:hover{
+        transform: rotate(-30deg);
+    }
+}
+
