@@ -1,8 +1,9 @@
 :root{
-    --Color-Azul:#0284f9;
+    --Color-Verde:#a6d93e;
+    --Color-Azul:#1437b9;
     --Color-Negro:#020202;
     --Color-Blanco: #f5f5f5;
-    --Color-Gris:#e8e8e8;
+    --Color-Gris:#f9f9f9;
     --Font-Textos: "Roboto Condensed", sans-serif;
     --Font-Titles: "degular-variable",sans-serif; font-variation-settings: 'ital' 0, 'opsz' 70, 'wght' 800;
 }
@@ -188,12 +189,12 @@ a{
 }
 .custom-cursor i {
     font-size: 4rem;
-    color: var(--Color-Negro);
+    color: var(--Color-Verde);
     margin-bottom: 0px; /* Espacio inferior entre el icono y el texto */
 }
 .custom-cursor .scroll-down {
     font-size: 1rem;
-    color: var(--Color-Negro);
+    color: var(--Color-Verde);
 }
 
 /* CSS para aplicar el cursor personalizado al hover */
@@ -235,10 +236,10 @@ a{
     margin: 30px 0px;
 }
 .proyectos p{
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     text-align: right;
     font-weight: 400;
-    line-height: 1.5rem;
+    line-height: 1.8rem;
     margin-bottom: 50px;
 }
 .proyectos .flecha{
@@ -313,6 +314,7 @@ a{
 }
 .categorias .categoria:hover .icon i{
     transform: rotate(-45deg);
+    color: var(--Color-Verde);
 }
 
 /******************************/
@@ -321,6 +323,35 @@ a{
 
 .sobre-mi{
     background-color: var(--Color-Negro);
+    position: relative;
+}
+.sobre-mi .cartoon1{
+    position: absolute;
+    width: 15%;
+    top: -10px;
+    right: 80px;
+    transform: rotate(-30deg);
+}
+.sobre-mi .cartoon2{
+    position: absolute;
+    width: 12%;
+    top: 40px;
+    left: 150px;
+    transform: rotate(-20deg);
+}
+.sobre-mi .cartoon3{
+    position: absolute;
+    width: 13%;
+    bottom: 10px;
+    left: 130px;
+    transform: rotate(20deg);
+}
+.sobre-mi .cartoon4{
+    position: absolute;
+    width: 23%;
+    bottom: 50px;
+    right: 150px;
+    transform: rotate(10deg);
 }
 .sobre-mi h2{
     font-family: var(--Font-Titles);
@@ -328,7 +359,7 @@ a{
     font-size: 5rem;
     text-align: center;
     text-transform: uppercase;
-    margin: 30px 0px;
+    margin: 10% 0px 30px 0px;
 }
 .sobre-mi p{
     color: var(--Color-Blanco);
@@ -344,7 +375,7 @@ a{
 }
 .sobre-mi .btn a{
     font-family: var(--Font-Titles);
-    background-color: var(--Color-Azul);
+    background-color: var(--Color-Verde);
     padding: 15px 50px;
     color: var(--Color-Blanco);
     font-size: 1.2rem;
@@ -409,7 +440,7 @@ a{
     padding: 0%;
 }
 .contacto .email .btnContact a{
-    background-color: #15d972;
+    background-color: var(--Color-Verde);
     padding: 10px 50px;
     margin: 0px 0px 30px 0px;
     font-size: 1.5rem;
@@ -446,7 +477,7 @@ a{
     padding: 0%;
 }
 .contacto .telefono .btnContact a{
-    background-color: #15d972;
+    background-color: var(--Color-Verde);
     padding: 10px 50px;
     margin: 0px 0px 30px 0px;
     font-size: 1.5rem;
@@ -476,7 +507,7 @@ a{
 .contacto .socialMedia .redIzq:hover{
     cursor: pointer;
     transform: rotate(-3deg);
-    border: 5px solid var(--Color-Azul);
+    border: 5px solid var(--Color-Verde);
     box-shadow: 0px 0px 5px var(--Color-Negro);
     color: var(--Color-Azul);
     text-decoration: none;
@@ -484,7 +515,7 @@ a{
 .contacto .socialMedia .redDer:hover{
     cursor: pointer;
     transform: rotate(3deg);
-    border: 5px solid var(--Color-Azul);
+    border: 5px solid var(--Color-Verde);
     box-shadow: 0px 0px 5px var(--Color-Negro);
     color: var(--Color-Azul);
     text-decoration: none;
@@ -585,6 +616,11 @@ a{
 .proyecto nav .nav-link{
     font-family: var(--Font-Titles);
     font-size: 1.2rem;
+    color: var(--Color-Azul);
+}
+.proyecto nav .nav-link:hover{
+    color: var(--Color-Verde);
+    text-decoration: underline;
 }
 .proyecto nav .active{
     color: var(--Color-Negro);
@@ -618,15 +654,14 @@ a{
     padding: 0px 20px;
 }
 .trabajos .trabajo .imagen img{
-    width: 70%;
-    height: auto;
+    width: 80%;
 }
 .trabajos .trabajo .texto{
     width: 50%;
     text-align: left;
 }
 .trabajos .trabajo .texto hr{
-    border: 4px solid var(--Color-Azul);
+    border: 4px solid var(--Color-Verde);
     width: 20%;
     border-radius: 10px;
     margin-bottom: 15px;
@@ -656,6 +691,7 @@ a{
 }
 .trabajos .trabajo .texto .boton a:hover{
     transform: rotate(-30deg);
+    color: var(--Color-Verde);
 }
 .trabajos .controls .control{
     font-size: 3rem;
@@ -788,6 +824,16 @@ a{
     /******************************/
     /********** SOBRE MI **********/
     /******************************/
+    .sobre-mi .cartoon4{
+        position: absolute;
+        width: 25%;
+        bottom: 50px;
+        right: 60px;
+        transform: rotate(10deg);
+    }
+    .sobre-mi h2{
+        margin: 30px 0px 30px 0px;
+    }
     .sobre-mi .btn{
         display: flex;
         justify-content: center;
